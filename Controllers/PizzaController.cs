@@ -6,7 +6,8 @@ namespace la_mia_pizzeria_static.Controllers
 {
     public class PizzaController : Controller
     {
-       
+        List<Pizza> pizzasList = new List<Pizza>();
+
         private readonly ILogger<PizzaController> _logger;
 
         public PizzaController(ILogger<PizzaController> logger)
@@ -17,21 +18,22 @@ namespace la_mia_pizzeria_static.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-
             List<Pizza> pizzasList = new List<Pizza>();
 
-            Pizza Margherita = new Pizza("Margherita", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "pizza-margherita.jpg", "3,99");
-            Pizza Marinara = new Pizza("Marinara", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "marinara.jpg", "3,00");
-            Pizza Mortadella = new Pizza("Mortadella pistacchio e stracciatella", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "mortadella.jpg", "7,99");
-            Pizza QuattroFormaggi = new Pizza("Quattro Formaggi", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "formaggi.jpg", "5,99");
-            Pizza Crudaiola = new Pizza("Crudaiola", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "crudaiola.jpg", "5,99");
-            
+            Pizza Margherita = new Pizza(0, "Margherita", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "pizza-margherita.jpg", "3,99");
+            Pizza Marinara = new Pizza(1, "Marinara", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "marinara.jpg", "3,00");
+            Pizza Mortadella = new Pizza(2, "Mortadella pistacchio e stracciatella", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "mortadella.jpg", "7,99");
+            Pizza QuattroFormaggi = new Pizza(3, "Quattro Formaggi", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "formaggi.jpg", "5,99");
+            Pizza Crudaiola = new Pizza(4, "Crudaiola", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "crudaiola.jpg", "5,99");
+
 
             pizzasList.Add(Margherita);
             pizzasList.Add(Marinara);
             pizzasList.Add(Mortadella);
             pizzasList.Add(QuattroFormaggi);
             pizzasList.Add(Crudaiola);
+            
+
 
             return View(pizzasList);
         }
@@ -43,14 +45,13 @@ namespace la_mia_pizzeria_static.Controllers
 
         public IActionResult Show(int id)
         {
-
             List<Pizza> pizzasList = new List<Pizza>();
 
-            Pizza Margherita = new Pizza("Margherita", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "pizza-margherita.jpg", "3,99");
-            Pizza Marinara = new Pizza("Marinara", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "marinara.jpg", "3,00");
-            Pizza Mortadella = new Pizza("Mortadella pistacchio e stracciatella", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "mortadella.jpg", "7,99");
-            Pizza QuattroFormaggi = new Pizza("Quattro Formaggi", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "formaggi.jpg", "5,99");
-            Pizza Crudaiola = new Pizza("Crudaiola", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "crudaiola.jpg", "5,99");
+            Pizza Margherita = new Pizza(0, "Margherita", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "pizza-margherita.jpg", "3,99");
+            Pizza Marinara = new Pizza(1, "Marinara", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "marinara.jpg", "3,00");
+            Pizza Mortadella = new Pizza(2, "Mortadella pistacchio e stracciatella", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "mortadella.jpg", "7,99");
+            Pizza QuattroFormaggi = new Pizza(3, "Quattro Formaggi", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "formaggi.jpg", "5,99");
+            Pizza Crudaiola = new Pizza(4, "Crudaiola", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "crudaiola.jpg", "5,99");
 
 
             pizzasList.Add(Margherita);

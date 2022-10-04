@@ -4,16 +4,15 @@ namespace la_mia_pizzeria_static.Models
 {
     public class Pizza
     {
-        private static int Count = 0;
-        public int Id { get; private set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Photo { get; set; }
         public float Price { get; set; }
 
-        public Pizza(string name, string description, string photo, string price)
+        public Pizza(int id, string name, string description, string photo, string price)
         {
-            Id = Pizza.Count++;
+            Id = id;
             Name = name;
             Description = description;
             Photo = photo;
