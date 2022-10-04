@@ -58,6 +58,12 @@ namespace la_mia_pizzeria_static.Controllers
             pizzasList.Add(Mortadella);
             pizzasList.Add(QuattroFormaggi);
             pizzasList.Add(Crudaiola);
+
+            if (id >= pizzasList.Count)
+            {
+                return View("Error");
+            }
+
             return View("Show", pizzasList[id]);
         }
 
