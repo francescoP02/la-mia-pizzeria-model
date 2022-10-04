@@ -1,0 +1,122 @@
+﻿@*
+    
+    1. Dichiarare una variabile valorizzandola con il nostro nome.
+    Dichiarare un'altra variabile valorizzandola con il nostro cognome.
+    Stampare il nostro nome e cognome all'interno di un tag h2.
+    2. Creare una funzione che stampa la somma dei numeri che vanno da 1 a n (con n passato come parametro - n incluso)
+    Stampare dentro uno span il risultato.
+    3. Contare quante volte la lettera a è presente nalla frase "nel mezzo del cammin di nostra vita" e stampare questo valore in pagina
+    4. Creare una List<int> di 20 numeri interi (generati random da 1 a 90, 1 e 90 inclusi) e mostrare in pagina solo i numeri compresi tra 20 e 70
+    5. Stampare in pagina la data e l'ora attuale (usando la classe DateTime) con il formato anno-mese-giorno ore:minuti:secondi
+    6. Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina
+    a. la data di 7 giorni fa
+    b. che giorno della settimana è oggi (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)
+    c. che giorno della settimana sarà nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)
+*@
+
+@{
+    Layout = "_Layout";
+
+    //ESERCIZIO 1
+    string name = "Francesco";
+    string surname = "Partipilo";
+
+    //ESERCIZIO 2
+
+    int n = 10;
+
+    int Sum(int n)
+    {
+        int sum = 0;
+
+        for (int i = 0; i <= n; i++)
+        {
+            sum = sum + i;
+        }
+
+        return sum;
+    }
+
+    //ESERCIZIO 3
+
+    string text = "nel mezzo del cammin di nostra vita";
+
+    int Count(string text, char letter){
+        int count = text.Count(f => (f == letter));
+        return count;
+    }
+
+    //ESERCIZIO 4
+
+    Random rnd = new Random();
+    List<int> randomNumbers = new List<int>();
+
+    for (int i = 0; i < 20; i++)
+    {
+        randomNumbers.Add(rnd.Next(1, 91));
+    }
+
+    //ESERCIZIO 5 e 6
+
+    DateTime nowdate = DateTime.Now;
+}
+
+<html>
+    <body>
+        <ul>
+            <li>
+                <h3>Esercizio 1</h3>
+                <p>Hello @name @surname</p>
+               
+            </li>
+
+            <li>
+                <h3>Esercizio 2</h3>
+            <span>La somma dei numeri fino a @n è : @Sum(n)</span>
+
+            </li>
+
+            <li>
+                <h3>Esercizio 3</h3>
+                <p>La lettera "a" è presente @Count(text, 'a') volte nella frase @text</p>
+            </li>
+
+            <li>
+                <h3>Esercizio 4</h3>
+                <p>Numeri casuali compresi tra 20 e 70:</p>
+                <ul class="n-list">
+                    @foreach(int number in randomNumbers){
+                        @if (number >= 20 && number <= 70){
+                            <li>@number</li>
+                        }
+                    }
+                </ul>
+            </li>
+
+            <li>
+                <h3>Esercizio 5</h3>
+                <p>Data attuale = @nowdate.ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss")</p>
+
+            </li>
+
+            <li>
+                <h3>Esercizio 6</h3>
+                <ul>
+                    <li>
+                        <h6>6a:</h6>
+                        <p>La data di 7 giorni fa è @nowdate.AddDays(-7).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss")</p>
+                    </li>
+                    <li>
+                        <h6>6b:</h6>
+                        <p>Il giorno della settimana odierno è @nowdate.ToString("dddd")</p>
+                    </li>
+                    <li>
+                        <h6>6c:</h6>
+                        <p>Il giorno della settimana del @nowdate.AddYears(1).ToString("dd'/'MM'/'yyyy") è @nowdate.AddYears(1).ToString("dddd")</p>
+                    </li>
+                </ul>
+               
+            </li>
+        </ul>
+    </body>
+</html>
