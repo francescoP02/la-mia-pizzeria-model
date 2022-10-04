@@ -1,15 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout";
-
-    List<Pizza> pizzas = new List<Pizza>();
-
-    pizzas.Add(new Pizza("Margherita", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "pizza-margherita.jpg", "3,99"));
-    pizzas.Add(new Pizza("Marinara", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "marinara.jpg", "3,00"));
-    pizzas.Add(new Pizza("Mortadella pistacchio e stracciatella", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "mortadella.jpg", "7,99"));
-    pizzas.Add(new Pizza("Quattro Formaggi", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "formaggi.jpg", "5,99"));
-    pizzas.Add(new Pizza("Crudaiola", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", "crudaiola.jpg", "5,99"));
 }
+
+@model List<Pizza>
 
 <html>
     <head>
@@ -23,7 +17,7 @@
         <div class="container">
             <div class="row row-cols-4 justify-content-between">
 
-                @foreach(Pizza pizza in pizzas){
+                @foreach(Pizza pizza in Model){
                     <div class="card my-3" style="width: 18rem;">
                         <img src="/img/@pizza.Photo" class="card-img-top py-1" alt="...">
                         <div class="card-body">
